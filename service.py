@@ -10,8 +10,8 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 # Load the CSV file into a DataFrame
-file_path = "cycling_data_round1.txt"
-output_csv = "cycling_data_round1.csv"
+file_path = "cycling_data_round7.txt"
+output_csv = "cycling_data_round7.csv"
 process(file_path, output_csv)
 df = pd.read_csv(output_csv)
 df = df.astype('object')
