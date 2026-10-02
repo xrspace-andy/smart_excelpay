@@ -16,7 +16,7 @@ This script reads a text file containing cycling data, processes it, and outputs
    ```
 
 ## Usage
-1. Prepare a text file (`cycling_data.txt`) with data in the following format:
+1. Prepare a text file for the round (`cycling_data_round<N>.txt`, e.g. `cycling_data_round9.txt`) with data in the following format:
    ```
    YYYY_MM_DD,Name1/Name2/Name3,Value
    ```
@@ -24,15 +24,25 @@ This script reads a text file containing cycling data, processes it, and outputs
    ```
    2025_01_21,Arthur/Bossun/JJ/Rex/Chaihung,245
    ```
-2. Run the script:
+2. Run the script with the round number to process:
    ```sh
-   python to_csv.py
+   python to_csv.py <round>
    ```
-3. The processed data will be saved in `cycling_data.csv`.
-4. Run the script for service:
+   Example, for round 9:
    ```sh
-   python service.py
+   python to_csv.py 9
    ```
+3. The processed data will be saved in `cycling_data_round<N>.csv` (e.g. `cycling_data_round9.csv`). The CSV files are generated output and are not committed.
+4. Run the script for service with the round number to serve (this also regenerates the CSV of that round):
+   ```sh
+   python service.py <round>
+   ```
+   Example, for round 9:
+   ```sh
+   python service.py 9
+   ```
+
+Both scripts need the round number; run them with `-h` to see the usage, and an unknown round (no matching `cycling_data_round<N>.txt`) exits with an error.
 5. copy URL to query personal data:
    #### Example:
    - enter URL
